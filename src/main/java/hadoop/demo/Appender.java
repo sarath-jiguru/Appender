@@ -91,7 +91,10 @@ public class Appender {
         System.loadLibrary("gplcompression");
         // create an output stream to write to a new file in hdfs
         Path outputPath = new Path(
-                "/hdfs-push/datain/hdfs.lzo_deflate");
+                "/hdfs-push/datain/hdfs.lzo");
+        if(!fs.exists(outputPath))
+            fs.create(outputPath).close();
+
         OutputStream outputStream = fs.append(outputPath);
 
         // now wrap the output stream with a Zlib compression codec
