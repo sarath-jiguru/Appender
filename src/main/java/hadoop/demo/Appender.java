@@ -1,5 +1,6 @@
 package hadoop.demo;
 
+import com.hadoop.compression.lzo.LzoIndexer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -112,6 +113,9 @@ public class Appender {
         bufferedWriter.append("completed 10 times");
         bufferedWriter.newLine();
         bufferedWriter.close();
+
+        LzoIndexer lzoIndexer = new LzoIndexer(conf);
+        lzoIndexer.index(outputPath);
 
     }
 
