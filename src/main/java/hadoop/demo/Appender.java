@@ -8,7 +8,6 @@ import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.CompressionCodecFactory;
 import org.apache.hadoop.io.compress.CompressionOutputStream;
 import org.apache.hadoop.util.Tool;
-import org.apache.hadoop.util.ToolRunner;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -88,11 +87,6 @@ public class Appender extends Configured implements Tool {
 
         fs1.close();
 */
-        ToolRunner.run(new Appender(), args);
-
-    }
-    public int run(String[] arg0) throws Exception {
-
         // create am HDFS file system
         Configuration conf = new Configuration();
         FileSystem fs = FileSystem.get(conf);
@@ -116,9 +110,9 @@ public class Appender extends Configured implements Tool {
         bufferedWriter.append("completed 10 times");
         bufferedWriter.newLine();
         bufferedWriter.close();
-
-        return 0;
+        
     }
+
 
 
 }
