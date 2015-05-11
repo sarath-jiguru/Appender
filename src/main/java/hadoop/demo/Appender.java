@@ -108,10 +108,13 @@ public class Appender extends Configured implements Tool {
         CompressionOutputStream compressedOutput = codec.createOutputStream(outputStream);
 
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(compressedOutput));
-        for(int i=0;i<10;i++)
+        for(int i=0;i<10;i++) {
             bufferedWriter.append("a new String");
+            bufferedWriter.newLine();
+        }
 
         bufferedWriter.append("completed 10 times");
+        bufferedWriter.newLine();
         bufferedWriter.close();
 
         return 0;
