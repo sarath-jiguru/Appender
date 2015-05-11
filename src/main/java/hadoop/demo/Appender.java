@@ -96,7 +96,7 @@ public class Appender extends Configured implements Tool {
         // create am HDFS file system
         Configuration conf = new Configuration();
         FileSystem fs = FileSystem.get(conf);
-
+        System.loadLibrary("gplcompression");
         // create an output stream to write to a new file in hdfs
         Path outputPath = new Path(
                 "/hdfs-push/datain/hdfs.lzo_deflate");
