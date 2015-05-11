@@ -39,9 +39,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-core</artifactId>
-            <version>2.5.0-mr1-cdh5.3.0</version>
+            <groupId>hadoop-lzo</groupId>
+            <artifactId>hadoop-lzo</artifactId>
+            <version>0.4.15-gplextras5.0.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
