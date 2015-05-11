@@ -99,7 +99,8 @@ public class Appender {
 
         // now wrap the output stream with a Zlib compression codec
         CompressionCodecFactory codecFactory = new CompressionCodecFactory(conf);
-        CompressionCodec codec = codecFactory.getCodec(outputPath);
+        CompressionCodec codec = codecFactory.getCodecByName("LzopCodec");
+
         CompressionOutputStream compressedOutput = codec.createOutputStream(outputStream);
 
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(compressedOutput));
