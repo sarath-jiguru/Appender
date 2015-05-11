@@ -100,7 +100,7 @@ public class Appender extends Configured implements Tool {
         // create an output stream to write to a new file in hdfs
         Path outputPath = new Path(
                 "/hdfs-push/datain/hdfs.lzo_deflate");
-        OutputStream outputStream = fs.create(outputPath);
+        OutputStream outputStream = fs.append(outputPath);
 
         // now wrap the output stream with a Zlib compression codec
         CompressionCodecFactory codecFactory = new CompressionCodecFactory(conf);
