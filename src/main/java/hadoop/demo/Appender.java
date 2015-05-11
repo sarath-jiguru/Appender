@@ -10,8 +10,10 @@ import org.apache.hadoop.io.compress.CompressionOutputStream;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 public class Appender extends Configured implements Tool {
 
@@ -105,11 +107,12 @@ public class Appender extends Configured implements Tool {
         CompressionCodec codec = codecFactory.getCodec(outputPath);
         CompressionOutputStream compressedOutput = codec.createOutputStream(outputStream);
 
-        // send content to file via compressed output stream using .write methods
-        // ..
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(compressedOutput));
+        for(int i=0;i<10;i++)
+            bufferedWriter.append("a new String");
 
-        // close out stream
-        compressedOutput.close();
+        bufferedWriter.append("completed 10 times");
+        bufferedWriter.close();
 
         return 0;
     }
