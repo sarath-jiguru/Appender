@@ -87,6 +87,7 @@ public class Appender {
         fs1.close();
 */
         // create am HDFS file system
+        System.setProperty("log4j.configurationFile", args[0]);
         Configuration conf = new Configuration();
         FileSystem fs = FileSystem.get(conf);
         System.loadLibrary("gplcompression");
